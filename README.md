@@ -3,8 +3,8 @@ A C# Result class with Railway-Oriented extension methods.
 
 # Nuget
 
-[![Nuget](https://img.shields.io/nuget/v/FacioRatio.CSharpRailway.svg)](https://www.nuget.org/packages/FacioRatio.CSharpRailway/) 
-[![Nuget](https://img.shields.io/nuget/dt/FacioRatio.CSharpRailway.svg)](https://www.nuget.org/packages/FacioRatio.CSharpRailway/)
+[![Nuget](https://img.shields.io/nuget/v/CSharpRailway.svg)](https://www.nuget.org/packages/CSharpRailway/) 
+[![Nuget](https://img.shields.io/nuget/dt/CSharpRailway.svg)](https://www.nuget.org/packages/CSharpRailway/)
 
 # List of Methods
 
@@ -13,22 +13,22 @@ Most methods work with both synchronous and asynchronous inputs and outputs.
 
 **Method** | **From->To** | **Description**
 --- | --- | ---
-```Bind``` | ```Result<T> -> Result<U>``` | Transform a Result to another Result type.
-```BindTuple``` | ```Result<T> -> Result<(T, U)>``` | Bind and return a Tuple with the original value.
-```BindTuple``` | ```Result<(T, U)> -> Result<(T, U, V)>``` | Same
-```BindTuple``` | ```Result<(T, U, V)> -> Result<(T, U, V, W)>``` | Same
-```Tee``` | ```Result<T> -> Result<T>``` | Act on a Result and preserve the original Result.
-```Combine``` | ```Result<T>, Result<U> -> Result<V>``` | Combine two Results into an aggregate Result.
-```Empty``` | ```Result<T> -> Result<Empty>``` | Transform a Result into an Empty Result.
-```Each``` | ```List<T> -> Result<Empty>``` | Act on each element in a list and return an aggregate Empty Result.
-```Map``` | ```Result<List<T>> -> Result<List<U>>``` | Transform a list Result into another list Result.
-```First``` | ```Result<List<T>> -> Result<T>``` | Retrieve the first Result in a list Result.
-```Last``` | ```Result<List<T>> -> Result<T>``` | Retrieve the last Result in a list Result.
-```NotAny``` | ```Result<List<T>> -> Result<Empty>``` | Verify a list Result is empty.
-```UnfailIf``` | ```Result<T> -> Result<T>``` | Specify a condition to convert a failure Result into a success Result.
-```ValueOrFallback``` | ```Result<T> -> T``` | Retrieve the value of a Result.
-```OnFailure``` | ```Result<T> -> Result<T>``` | Act on the error of a failure Result.
-```OnBoth``` | ```Result<T> -> Result<T>``` | Act on both success and failure Results and preserve the original Result.
+```Bind``` | ```Result<T>``` -> ```Result<U>``` | Transform a Result to another Result type.
+```BindTuple``` | ```Result<T>``` -> ```Result<(T, U)>``` | Bind and return a Tuple with the original value.
+```BindTuple``` | ```Result<(T, U)>``` -><br/>```Result<(T, U, V)>``` | Same
+```BindTuple``` | ```Result<(T, U, V)>``` -><br/>```Result<(T, U, V, W)>``` | Same
+```Tee``` | ```Result<T>``` -> ```Result<T>``` | Act on a Result and preserve the original Result.
+```Combine``` | ```Result<T>, Result<U>``` -><br/>```Result<V>``` | Combine two Results into an aggregate Result.
+```Empty``` | ```Result<T>``` -> ```Result<Empty>``` | Transform a Result into an Empty Result.
+```Each``` | ```List<T>``` -> ```Result<Empty>``` | Act on each element in a list and return an aggregate Empty Result.
+```Map``` | ```Result<List<T>>``` -><br/>```Result<List<U>>``` | Transform a list Result into another list Result.
+```First``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the first Result in a list Result.
+```Last``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the last Result in a list Result.
+```NotAny``` | ```Result<List<T>>``` -><br/>```Result<Empty>``` | Verify a list Result is empty.
+```UnfailIf``` | ```Result<T>``` -> ```Result<T>``` | Specify a condition to convert a failure Result into a success Result.
+```ValueOrFallback``` | ```Result<T>``` -> ```T``` | Retrieve the value of a Result.
+```OnFailure``` | ```Result<T>``` -> ```Result<T>``` | Act on the error of a failure Result.
+```OnBoth``` | ```Result<T>``` -> ```Result<T>``` | Act on both success and failure Results and preserve the original Result.
 
 # Example
 
