@@ -7,7 +7,7 @@ Unless specified otherwise, all methods only perform on successful Results and o
 Most methods work with both synchronous and asynchronous inputs and outputs.
 
 **Method** | **From->To** | **Description**
---- | ---
+--- | --- | ---
 ```Bind``` | Result<T> -> Result<U> | Transform a Result to another type.
 ```BindTuple``` | Result<T> -> Result<(T, U)> | Return the Result of Bind as a Tuple with the original value.
 ```BindTuple``` | Result<(T, U)> -> Result<(T, U, V)> | Same
