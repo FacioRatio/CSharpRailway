@@ -14,7 +14,7 @@ Most methods work with both synchronous and asynchronous inputs and outputs.
 **Method** | **From->To** | **Description**
 --- | --- | ---
 ```Bind``` | ```Result<T>``` -> ```Result<U>``` | Transform a Result to another Result type.
-```BindTuple``` | ```Result<T>``` -> ```Result<(T, U)>``` | Bind and return a Tuple with the original value.
+```BindTuple``` | ```Result<T>``` -><br/>```Result<(T, U)>``` | Bind and return a Tuple with the original value.
 ```BindTuple``` | ```Result<(T, U)>``` -><br/>```Result<(T, U, V)>``` | Same
 ```BindTuple``` | ```Result<(T, U, V)>``` -><br/>```Result<(T, U, V, W)>``` | Same
 ```Tee``` | ```Result<T>``` -> ```Result<T>``` | Act on a Result and preserve the original Result.
