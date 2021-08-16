@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FacioRatio.CSharpRailway.Example": {
+      "commandName": "Project",
+      "commandLineArgs": "arg1 arg2"
+    }
+  }
+}
