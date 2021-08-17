@@ -3,8 +3,8 @@ A C# Result class with Railway-Oriented extension methods.
 
 # Nuget
 
-[![Nuget](https://img.shields.io/nuget/v/CSharpRailway.svg)](https://www.nuget.org/packages/CSharpRailway/) 
-[![Nuget](https://img.shields.io/nuget/dt/CSharpRailway.svg)](https://www.nuget.org/packages/CSharpRailway/)
+[![Nuget](https://img.shields.io/nuget/v/FacioRatio.CSharpRailway.svg)](https://www.nuget.org/packages/FacioRatio.CSharpRailway/) 
+[![Nuget](https://img.shields.io/nuget/dt/FacioRatio.CSharpRailway.svg)](https://www.nuget.org/packages/FacioRatio.CSharpRailway/)
 
 # List of Methods
 
