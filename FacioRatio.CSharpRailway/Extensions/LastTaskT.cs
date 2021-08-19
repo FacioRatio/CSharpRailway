@@ -14,7 +14,7 @@ namespace FacioRatio.CSharpRailway
 
             var value = t.Value.LastOrDefault();
             if (value == null)
-                return Result.Fail<T>($"{typeof(T).Name} collection is empty.");
+                return Result.Fail<T>(new NotFoundException(typeof(T).Name));
 
             return Result.Ok(value);
         }
@@ -27,7 +27,7 @@ namespace FacioRatio.CSharpRailway
 
             var value = t.Value.LastOrDefault();
             if (value == null)
-                return Result.Fail<T>($"{typeof(T).Name} collection is empty.");
+                return Result.Fail<T>(new NotFoundException(typeof(T).Name));
 
             return Result.Ok(value);
         }

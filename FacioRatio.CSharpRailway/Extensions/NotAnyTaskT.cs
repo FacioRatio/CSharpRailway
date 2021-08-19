@@ -13,7 +13,7 @@ namespace FacioRatio.CSharpRailway
                 return Result.Fail<Empty>(t.Error);
 
             if (t.Value.Any())
-                return Result.Fail<Empty>($"{typeof(T).Name} collection is not empty.");
+                return Result.Fail<Empty>(new NotEmptyException(typeof(T).Name));
 
             return Result.Ok();
         }
@@ -25,7 +25,7 @@ namespace FacioRatio.CSharpRailway
                 return Result.Fail<Empty>(t.Error);
 
             if (t.Value.Any())
-                return Result.Fail<Empty>($"{typeof(T).Name} collection is not empty.");
+                return Result.Fail<Empty>(new NotEmptyException(typeof(T).Name));
 
             return Result.Ok();
         }
