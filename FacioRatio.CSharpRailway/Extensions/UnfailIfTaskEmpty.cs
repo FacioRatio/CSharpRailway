@@ -12,5 +12,13 @@ namespace FacioRatio.CSharpRailway
                 return Result.Ok();
             return t;
         }
+
+        public static async Task<Result<Empty>> UnFailIf(this Task<Result<Empty>> tTask, Func<Exception, Task<bool>> func)
+        {
+            var t = await tTask;
+            if (await func(t.Error))
+                return Result.Ok();
+            return t;
+        }
     }
 }
