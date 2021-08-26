@@ -25,7 +25,7 @@ Most methods work with both synchronous and asynchronous inputs and outputs.
 ```First``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the first Result in a list Result.
 ```Last``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the last Result in a list Result.
 ```NotAny``` | ```Result<List<T>>``` -><br/>```Result<Empty>``` | Verify a list Result is empty.
-```UnfailIf``` | ```Result<T>``` -> ```Result<T>``` | Specify a condition to convert a failure Result into a success Result.
+```UnfailIf``` | ```Result<Empty>``` -><br/>```Result<Empty>``` | Specify a condition to convert a failure Result into a success Result.
 ```ValueOrFallback``` | ```Result<T>``` -> ```T``` | Retrieve the value of a Result.
 ```OnFailure``` | ```Result<T>``` -> ```Result<T>``` | Act on the error of a failure Result.
 ```OnBoth``` | ```Result<T>``` -> ```Result<T>``` | Act on both success and failure Results and preserve the original Result.
