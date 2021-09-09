@@ -26,6 +26,26 @@ namespace FacioRatio.CSharpRailway
             return tList.Bind(list => list.Map(async x => Result.Ok(await func(x)), ignoreFails));
         }
 
+        public static Result<List<U>> Map<T, U>(this Result<List<T>> tList, Func<T, Result<U>> func, bool ignoreFails = false)
+        {
+            return tList.Bind(list => list.Map(func, ignoreFails));
+        }
+
+        public static Task<Result<List<U>>> Map<T, U>(this Result<List<T>> tList, Func<T, Task<Result<U>>> func, bool ignoreFails = false)
+        {
+            return tList.Bind(list => list.Map(func, ignoreFails));
+        }
+
+        public static Result<List<U>> Map<T, U>(this Result<List<T>> tList, Func<T, U> func, bool ignoreFails = false)
+        {
+            return tList.Bind(list => list.Map(x => Result.Ok(func(x)), ignoreFails));
+        }
+
+        public static Task<Result<List<U>>> Map<T, U>(this Result<List<T>> tList, Func<T, Task<U>> func, bool ignoreFails = false)
+        {
+            return tList.Bind(list => list.Map(async x => Result.Ok(await func(x)), ignoreFails));
+        }
+
         public static Result<List<U>> Map<T, U>(this IEnumerable<T> list, Func<T, Result<U>> func, bool ignoreFails = false)
         {
             var results = new List<U>();
