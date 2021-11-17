@@ -3,7 +3,7 @@ using Xunit;
 
 namespace FacioRatio.CSharpRailway.Tests
 {
-    public class ValueOrFallbackTaskTTests
+    public class ResultValueOrFallbackTaskTTests
     {
         [Fact]
         public async Task AsyncValueOrFallback_ReturnsValueWhenSuccess()

@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultOnBothExtensions
     {
         public static Result<T> OnBoth<T>(this Result<T> t, Action<Result<T>> action)
         {

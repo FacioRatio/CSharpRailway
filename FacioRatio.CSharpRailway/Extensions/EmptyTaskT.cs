@@ -2,7 +2,8 @@
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultEmptyTaskTExtensions
     {
         public static async Task<Result<Empty>> Empty<T>(this Task<Result<T>> tTask)
         {

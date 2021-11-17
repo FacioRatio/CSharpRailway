@@ -1,6 +1,7 @@
 ﻿namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultEmptyTExtensions
     {
         public static Result<Empty> Empty<T>(this Result<T> t)
         {

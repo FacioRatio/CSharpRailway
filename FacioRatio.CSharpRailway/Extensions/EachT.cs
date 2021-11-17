@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultEachTExtensions
     {
         public static Result<Empty> Each<T>(this IEnumerable<T> list, Action<T> func)
         {
@@ -21,10 +22,10 @@ namespace FacioRatio.CSharpRailway
             return list.Aggregate(Result.Ok(), (lst, el) => lst.Combine(func(el)));
         }
 
-        public static Task<Result<Empty>> Each<T>(this IEnumerable<T> list, Func<T, Task> func)
+        public static async Task<Result<Empty>> Each<T>(this IEnumerable<T> list, Func<T, Task> func)
         {
-            Task.WhenAll(list.Select(x => func(x)));
-            return Task.FromResult(Result.Ok());
+            await Task.WhenAll(list.Select(x => func(x)));
+            return Result.Ok();
         }
 
         public static Task<Result<Empty>> Each<T>(this IEnumerable<T> list, Func<T, Task<Result<Empty>>> func)
@@ -46,10 +47,10 @@ namespace FacioRatio.CSharpRailway
             return list.Aggregate(Result.Ok(), (lst, el) => lst.Combine(func(el)));
         }
 
-        public static Task<Result<Empty>> Each<T>(this List<T> list, Func<T, Task> func)
+        public static async Task<Result<Empty>> Each<T>(this List<T> list, Func<T, Task> func)
         {
-            Task.WhenAll(list.Select(x => func(x)));
-            return Task.FromResult(Result.Ok());
+            await Task.WhenAll(list.Select(x => func(x)));
+            return Result.Ok();
         }
 
         public static Task<Result<Empty>> Each<T>(this List<T> list, Func<T, Task<Result<Empty>>> func)

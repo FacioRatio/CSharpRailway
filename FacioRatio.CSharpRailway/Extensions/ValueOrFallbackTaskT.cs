@@ -2,7 +2,8 @@
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultValueOrFallbackTaskTExtensions
     {
         public static async Task<T> ValueOrFallback<T>(this Task<Result<T>> tTask, T fallbackValue = default)
         {

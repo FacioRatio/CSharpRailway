@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultCombineTaskEmptyExtensions
     {
         public static async Task<Result<Empty>> Combine(this Task<Result<Empty>> tTask, Result<Empty> u, Func<Exception, Exception, Exception> aggregateFailure)
         {

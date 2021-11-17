@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultBindTaskABExtensions
     {
         public static async Task<Result<U>> Bind<A, B, U>(this Task<Result<(A, B)>> tTask, Func<A, B, Result<U>> func)
         {

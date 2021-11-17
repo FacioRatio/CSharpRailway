@@ -3,7 +3,8 @@ using System.Linq;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultNotAnyTExtensions
     {
         public static Result<Empty> NotAny<T>(this Result<IEnumerable<T>> t)
         {
@@ -21,7 +22,7 @@ namespace FacioRatio.CSharpRailway
             if (t.IsFailure)
                 return Result.Fail<Empty>(t.Error);
 
-            if (t.Value.Any())
+            if (t.Value.Count > 0)
                 return Result.Fail<Empty>(new NotEmptyException(typeof(T).Name));
 
             return Result.Ok();

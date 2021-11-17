@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultOnBothTaskTExtensions
     {
         public static async Task<Result<T>> OnBoth<T>(this Task<Result<T>> tTask, Action<Result<T>> action)
         {

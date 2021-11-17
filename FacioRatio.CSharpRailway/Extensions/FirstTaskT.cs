@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultFirstTaskTExtensions
     {
         public static async Task<Result<T>> First<T>(this Task<Result<IEnumerable<T>>> tTask)
         {
@@ -12,11 +14,15 @@ namespace FacioRatio.CSharpRailway
             if (t.IsFailure)
                 return Result.Fail<T>(t.Error);
 
-            var value = t.Value.FirstOrDefault();
-            if (value == null)
+            try
+            {
+                var value = t.Value.First();
+                return Result.Ok(value);
+            }
+            catch (InvalidOperationException)
+            {
                 return Result.Fail<T>(new NotFoundException(typeof(T).Name));
-
-            return Result.Ok(value);
+            }
         }
 
         public static async Task<Result<T>> First<T>(this Task<Result<List<T>>> tTask)
@@ -25,11 +31,10 @@ namespace FacioRatio.CSharpRailway
             if (t.IsFailure)
                 return Result.Fail<T>(t.Error);
 
-            var value = t.Value.FirstOrDefault();
-            if (value == null)
+            if (t.Value.Count == 0)
                 return Result.Fail<T>(new NotFoundException(typeof(T).Name));
 
-            return Result.Ok(value);
+            return Result.Ok(t.Value[0]);
         }
     }
 }

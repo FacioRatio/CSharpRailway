@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultEachTaskTExtensions
     {
         public static async Task<Result<Empty>> Each<T>(this Task<IEnumerable<T>> listTask, Action<T> func)
         {
@@ -55,7 +56,7 @@ namespace FacioRatio.CSharpRailway
         public static async Task<Result<Empty>> Each<T>(this Task<List<T>> listTask, Func<T, Task> func)
         {
             var list = await listTask;
-            await Task.WhenAll(list.Select(x => func(x)));
+            await Task.WhenAll(list.Select(x => func (x)));
             return Result.Ok();
         }
 

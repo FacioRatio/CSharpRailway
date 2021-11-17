@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultMapTaskTExtensions
     {
         public static Task<Result<List<U>>> Map<T, U>(this Task<Result<IEnumerable<T>>> tListTask, Func<T, Result<U>> func, bool ignoreFails = false)
         {

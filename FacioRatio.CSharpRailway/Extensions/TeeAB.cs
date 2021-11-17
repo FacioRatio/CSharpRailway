@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultTeeABExtensions
     {
         public static Result<(A, B)> Tee<A, B>(this Result<(A, B)> t, Action<A, B> func)
         {

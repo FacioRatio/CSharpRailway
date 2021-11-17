@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultUnfailIfTaskEmptyExtensions
     {
         public static async Task<Result<Empty>> UnFailIf(this Task<Result<Empty>> tTask, Func<Exception, bool> func)
         {

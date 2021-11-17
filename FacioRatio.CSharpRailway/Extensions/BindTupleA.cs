@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
-    public static partial class ResultExtensions
+    [System.Diagnostics.DebuggerStepThrough]
+    public static class ResultBindTupleAExtensions
     {
         public static Result<(A, B)> BindTuple<A, B>(this Result<A> t, Func<A, Result<B>> func)
         {
