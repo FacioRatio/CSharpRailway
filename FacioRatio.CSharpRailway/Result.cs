@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace FacioRatio.CSharpRailway
 {
@@ -39,6 +40,16 @@ namespace FacioRatio.CSharpRailway
             return new Result<Empty>(default);
         }
 
+        public static Task<Result<T>> OkTask<T>(T value)
+        {
+            return Task.FromResult(Result.Ok(value));
+        }
+
+        public static Task<Result<Empty>> OkTask()
+        {
+            return Task.FromResult(Result.Ok());
+        }
+
         public static Result<T> Fail<T>(Exception error)
         {
             if (error == default)
@@ -61,6 +72,26 @@ namespace FacioRatio.CSharpRailway
         public static Result<Empty> Fail(string error)
         {
             return Fail<Empty>(error);
+        }
+
+        public static Task<Result<T>> FailTask<T>(Exception error)
+        {
+            return Task.FromResult(Fail<T>(error));
+        }
+
+        public static Task<Result<Empty>> FailTask(Exception error)
+        {
+            return FailTask<Empty>(error);
+        }
+
+        public static Task<Result<T>> FailTask<T>(string error)
+        {
+            return Task.FromResult(Fail<T>(error));
+        }
+
+        public static Task<Result<Empty>> FailTask(string error)
+        {
+            return FailTask<Empty>(error);
         }
     }
 }

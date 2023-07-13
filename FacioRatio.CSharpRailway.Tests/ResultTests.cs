@@ -67,5 +67,7 @@ namespace FacioRatio.CSharpRailway.Tests
         {
             Assert.Throws<ArgumentNullException>(() => Result.Fail(default(string)));
         }
+
+        //!!add tests for OkTask and FailTask
     }
 }
