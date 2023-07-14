@@ -61,7 +61,7 @@ namespace FacioRatio.CSharpRailway.Tests
             var sut = Task.FromResult(Result.Ok<int>(1));
 
             var i = 0;
-            var result = await sut.OnFailure(e => Result.Ok(i = 1));
+            var result = await sut.OnFailure(e => Result.Ok(i = 1).Empty());
             Assert.True(result.IsSuccess);
             Assert.Equal(1, result.ValueOrFallback());
             Assert.Equal(0, i);
@@ -73,7 +73,7 @@ namespace FacioRatio.CSharpRailway.Tests
             var sut = Task.FromResult(Result.Fail<int>("fail"));
 
             var i = 0;
-            var result = await sut.OnFailure(e => Result.Ok(i = 1));
+            var result = await sut.OnFailure(e => Result.Ok(i = 1).Empty());
             Assert.True(result.IsFailure);
             Assert.IsAssignableFrom<int>(result.ValueOrFallback());
             Assert.Equal("fail", result.Error.Message);
@@ -86,7 +86,7 @@ namespace FacioRatio.CSharpRailway.Tests
             var sut = Task.FromResult(Result.Fail<int>("fail"));
 
             var i = 0;
-            var result = await sut.OnFailure(e => Result.Fail<int>("more"));
+            var result = await sut.OnFailure(e => Result.Fail<int>("more").Empty());
             Assert.True(result.IsFailure);
             Assert.IsAssignableFrom<int>(result.ValueOrFallback());
             Assert.Contains("fail", result.Error.Message);
@@ -100,7 +100,7 @@ namespace FacioRatio.CSharpRailway.Tests
             var sut = Task.FromResult(Result.Ok<int>(1));
 
             var i = 0;
-            var result = await sut.OnFailure(e => Task.FromResult(Result.Ok(i = 1)));
+            var result = await sut.OnFailure(e => Task.FromResult(Result.Ok(i = 1).Empty()));
             Assert.True(result.IsSuccess);
             Assert.Equal(1, result.ValueOrFallback());
             Assert.Equal(0, i);
@@ -112,7 +112,7 @@ namespace FacioRatio.CSharpRailway.Tests
             var sut = Task.FromResult(Result.Fail<int>("fail"));
 
             var i = 0;
-            var result = await sut.OnFailure(e => Task.FromResult(Result.Ok(i = 1)));
+            var result = await sut.OnFailure(e => Task.FromResult(Result.Ok(i = 1).Empty()));
             Assert.True(result.IsFailure);
             Assert.IsAssignableFrom<int>(result.ValueOrFallback());
             Assert.Equal("fail", result.Error.Message);
@@ -125,7 +125,7 @@ namespace FacioRatio.CSharpRailway.Tests
             var sut = Task.FromResult(Result.Fail<int>("fail"));
 
             var i = 0;
-            var result = await sut.OnFailure(e => Task.FromResult(Result.Fail<int>("more")));
+            var result = await sut.OnFailure(e => Task.FromResult(Result.Fail<int>("more").Empty()));
             Assert.True(result.IsFailure);
             Assert.IsAssignableFrom<int>(result.ValueOrFallback());
             Assert.Contains("fail", result.Error.Message);

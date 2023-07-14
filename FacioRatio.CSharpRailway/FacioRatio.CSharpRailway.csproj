@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/FacioRatio/CSharpRailway</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>railway, rop, c#, csharp, result, functional</PackageTags>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <AssemblyVersion>1.0.3.0</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <FileVersion>1.0.3.0</FileVersion>

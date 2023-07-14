@@ -24,7 +24,7 @@ namespace FacioRatio.CSharpRailway
             return t;
         }
 
-        public static Result<T> OnFailure<T>(this Result<T> t, Func<Exception, Result<T>> action)
+        public static Result<T> OnFailure<T>(this Result<T> t, Func<Exception, Result<Empty>> action)
         {
             if (t.IsFailure)
             {
@@ -34,7 +34,7 @@ namespace FacioRatio.CSharpRailway
             return t;
         }
 
-        public static async Task<Result<T>> OnFailure<T>(this Result<T> t, Func<Exception, Task<Result<T>>> action)
+        public static async Task<Result<T>> OnFailure<T>(this Result<T> t, Func<Exception, Task<Result<Empty>>> action)
         {
             if (t.IsFailure)
             {
