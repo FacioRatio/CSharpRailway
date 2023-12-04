@@ -17,15 +17,20 @@ Most methods work with both synchronous and asynchronous inputs and outputs.
 ```Bind``` | ```Result<(T, U)>``` -> ```Result<V>``` | Same
 ```Bind``` | ```Result<(T, U, V)>``` -><br/>```Result<W>``` | Same
 ```Bind``` | ```Result<(T, U, V, W)>``` -><br/>```Result<X>``` | Same
+```Bind``` | ```Result<(T, U, V, W, X)>``` -><br/>```Result<Y>``` | Same
 ```BindTuple``` | ```Result<T>``` -><br/>```Result<(T, U)>``` | Bind and return a Tuple with the original value.
 ```BindTuple``` | ```Result<(T, U)>``` -><br/>```Result<(T, U, V)>``` | Same
 ```BindTuple``` | ```Result<(T, U, V)>``` -><br/>```Result<(T, U, V, W)>``` | Same
+```BindTuple``` | ```Result<(T, U, V, W)>``` -><br/>```Result<(T, U, V, W, X)>``` | Same
 ```Tee``` | ```Result<T>``` -> ```Result<T>``` | Act on a Result and preserve the original Result.
 ```Combine``` | ```Result<T>, Result<U>``` -><br/>```Result<V>``` | Combine two Results into an aggregate Result.
 ```Empty``` | ```Result<T>``` -> ```Result<Empty>``` | Transform a Result into an Empty Result.
 ```Each``` | ```List<T>``` -> ```Result<Empty>``` | Act on each element in a list and return an aggregate Empty Result.
-```Map``` | ```Result<List<T>>``` -><br/>```Result<List<U>>``` | Transform a list Result into another list Result.
-```First``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the first Result in a list Result.
+```Filter``` | ```Result<List<T>>``` -><br/>```Result<List<T>>``` | Filter a list Result into a smaller-sized list Result of the same type.
+```Map``` | ```Result<List<T>>``` -><br/>```Result<List<U>>``` | Transform a list Result into a same-sized list Result of another type.
+```Reduce``` | ```Result<List<T>>``` -><br/>```Result<U>``` | Reduce a list Result into a single Result of another type.
+```First``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the first item in a list Result.
+```FirstOrDefault``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the first or default item in a list Result.
 ```Last``` | ```Result<List<T>>``` -> ```Result<T>``` | Retrieve the last Result in a list Result.
 ```NotAny``` | ```Result<List<T>>``` -><br/>```Result<Empty>``` | Verify a list Result is empty.
 ```UnfailIf``` | ```Result<Empty>``` -><br/>```Result<Empty>``` | Specify a condition to convert a failure Result into a success Result.

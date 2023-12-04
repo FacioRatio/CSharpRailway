@@ -26,7 +26,7 @@ namespace FacioRatio.CSharpRailway.Example
                     var renamedThing = thing with { Name = $"My {thing.Name}" };
                     return db.Update(renamedThing)
                         .Tee(_ => Log($"Updated {thing.Id} from {thing.Name} to {renamedThing.Name}."));
-                }, ignoreFails: false)
+                })
                 .Tee(myThings => Log("Updated everything (won't see this)."))
                 .Empty()
                 .OnFailure(ex => Log(ex.ToString()));
