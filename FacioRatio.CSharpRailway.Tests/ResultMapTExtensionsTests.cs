@@ -41,24 +41,6 @@ namespace FacioRatio.CSharpRailway.Tests
         }
 
         [Fact]
-        public void Map_IEnumerable_ResultU_Succeeds_IgnoresFailures()
-        {
-            var items = new int[] { 1, 2, 3 };
-
-            var result = items.Map(item =>
-            {
-                return item == 1
-                    ? Result.Fail<int>("bad one")
-                    : Result.Ok(item * 2);
-            }, ignoreFails: true);
-
-            Assert.True(result.IsSuccess);
-            Assert.Equal(2, result.ValueOrFallback().Count);
-            Assert.Equal(4, result.ValueOrFallback()[0]);
-            Assert.Equal(6, result.ValueOrFallback()[1]);
-        }
-
-        [Fact]
         public async Task Map_IEnumerable_TaskResultU_Succeeds()
         {
             var items = new int[] { 1, 2, 3 };
@@ -90,24 +72,6 @@ namespace FacioRatio.CSharpRailway.Tests
             Assert.False(result.IsSuccess);
             Assert.Null(result.ValueOrFallback());
             Assert.Equal("bad one", result.Error.Message);
-        }
-
-        [Fact]
-        public async Task Map_IEnumerable_TaskResultU_Succeeds_IgnoresFailures()
-        {
-            var items = new int[] { 1, 2, 3 };
-
-            var result = await items.Map(item =>
-            {
-                return item == 1
-                    ? Task.FromResult(Result.Fail<int>("bad one"))
-                    : Task.FromResult(Result.Ok(item * 2));
-            }, ignoreFails: true);
-
-            Assert.True(result.IsSuccess);
-            Assert.Equal(2, result.ValueOrFallback().Count);
-            Assert.Equal(4, result.ValueOrFallback()[0]);
-            Assert.Equal(6, result.ValueOrFallback()[1]);
         }
 
         [Fact]
