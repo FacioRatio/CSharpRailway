@@ -11,13 +11,11 @@
     <RepositoryUrl>https://github.com/FacioRatio/CSharpRailway</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>railway, rop, c#, csharp, result, functional</PackageTags>
-    <Version>1.1.0</Version>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <Version>1.1.1</Version>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <FileVersion>1.1.0.0</FileVersion>
-    <PackageReleaseNotes>Minor breaking change removes "ignoreFailures" argument to .Map()
-Break .Map() into .Map(), .Filter(), and .Reduce().
-Add .Any(), .True(), and .False()</PackageReleaseNotes>
+    <FileVersion>1.1.1.0</FileVersion>
+    <PackageReleaseNotes>Add missing overload for .Tee&lt;T&gt;</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

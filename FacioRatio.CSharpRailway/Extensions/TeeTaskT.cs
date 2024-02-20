@@ -15,6 +15,15 @@ namespace FacioRatio.CSharpRailway
             return t;
         }
 
+        public static async Task<Result<T>> Tee<T>(this Task<Result<T>> tTask, Func<T, Task> func)
+        {
+            var t = await tTask;
+            if (t.IsSuccess)
+                await func(t.Value);
+
+            return t;
+        }
+
         public static async Task<Result<T>> Tee<T>(this Task<Result<T>> tTask, Func<T, Result<Empty>> func)
         {
             var t = await tTask;
